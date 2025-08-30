@@ -39,29 +39,29 @@ public class AppTest {
     public static void openmobileapp() throws MalformedURLException, InterruptedException {
         UiAutomator2Options options = new UiAutomator2Options();
 
-//         options.setAppPackage("org.simple.clinic.staging");
-        options.setAppPackage("com.chataak.app");
+         options.setAppPackage("org.simple.clinic.staging");
+//        options.setAppPackage("com.chataak.app");
         //org.simple.clinic.main.SetupActivity
-//       options.setAppActivity("org.simple.clinic.setup.SetupActivity");
-        options.setAppActivity("com.chataak.app.MainActivity");
+       options.setAppActivity("org.simple.clinic.setup.SetupActivity");
+//        options.setAppActivity("com.chataak.app.MainActivity");
 
         options.setAutoGrantPermissions(true);
-//        options.setDeviceName("sdk_gphone64_x86_64");
-//        options.setUdid("emulator-5554");
-//        options.setPlatformName("Android");
-//        options.setPlatformVersion("14");
+        options.setDeviceName("sdk_gphone64_x86_64");
+        options.setUdid("emulator-5554");
+        options.setPlatformName("Android");
+        options.setPlatformVersion("14");
 
 
 //        //for the real device
-        options.setDeviceName("realme C3");
-        options.setUdid("YSBEC689H6W8EM9H");
-        options.setPlatformName("Android");
-        options.setPlatformVersion("11");
-        options.setIgnoreHiddenApiPolicyError(true);
-        //options.setNoReset(true);
-        options.setNoReset(true);
-        //capabilities.setCapability("newCommandTimeout", 300);
-        options.setCapability("newCommandtimeout", 300);
+//        options.setDeviceName("realme C3");
+//        options.setUdid("YSBEC689H6W8EM9H");
+//        options.setPlatformName("Android");
+//        options.setPlatformVersion("11");
+//        options.setIgnoreHiddenApiPolicyError(true);
+//        //options.setNoReset(true);
+//        options.setNoReset(true);
+//        //capabilities.setCapability("newCommandTimeout", 300);
+//        options.setCapability("newCommandtimeout", 300);
 
 
 // Set adbExecTimeout in milliseconds (60 seconds here)

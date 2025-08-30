@@ -34,6 +34,23 @@
 
 
 
+<!--            <dependency>-->
+<!--                <groupId>org.seleniumhq.selenium</groupId>-->
+<!--                <artifactId>selenium-java</artifactId>-->
+<!--                <version>4.15.0</version> &lt;!&ndash; or latest version &ndash;&gt;-->
+<!--            </dependency>-->
+
+            <dependency>
+                <groupId>io.appium</groupId>
+                <artifactId>java-client</artifactId>
+                <version>8.6.0</version> <!-- or latest version -->
+            </dependency>
+
+
+
+
+
+
         <!-- Selenium Java -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
