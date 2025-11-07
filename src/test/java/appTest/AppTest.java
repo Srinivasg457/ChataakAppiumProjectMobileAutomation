@@ -9,17 +9,13 @@ import org.openqa.selenium.interactions.PointerInput;
 import org.openqa.selenium.interactions.Sequence;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
+import java.util.Set;
 
 
 import io.appium.java_client.android.nativekey.KeyEvent;
@@ -37,31 +33,33 @@ public class AppTest {
     }
 
     public static void openmobileapp() throws MalformedURLException, InterruptedException {
+
         UiAutomator2Options options = new UiAutomator2Options();
 
-         options.setAppPackage("org.simple.clinic.staging");
-//        options.setAppPackage("com.chataak.app");
+//         options.setAppPackage("org.simple.clinic.staging");
+//        options.setAppActivity("org.simple.clinic.setup.SetupActivity");
+
         //org.simple.clinic.main.SetupActivity
-       options.setAppActivity("org.simple.clinic.setup.SetupActivity");
-//        options.setAppActivity("com.chataak.app.MainActivity");
+        options.setAppPackage("com.chataak.app");
+        options.setAppActivity("com.chataak.app.MainActivity");
 
         options.setAutoGrantPermissions(true);
-        options.setDeviceName("sdk_gphone64_x86_64");
-        options.setUdid("emulator-5554");
-        options.setPlatformName("Android");
-        options.setPlatformVersion("14");
+//        options.setDeviceName("sdk_gphone64_x86_64");
+//        options.setUdid("emulator-5554");
+//        options.setPlatformName("Android");
+//        options.setPlatformVersion("14");
 
 
 //        //for the real device
-//        options.setDeviceName("realme C3");
-//        options.setUdid("YSBEC689H6W8EM9H");
-//        options.setPlatformName("Android");
-//        options.setPlatformVersion("11");
-//        options.setIgnoreHiddenApiPolicyError(true);
-//        //options.setNoReset(true);
-//        options.setNoReset(true);
-//        //capabilities.setCapability("newCommandTimeout", 300);
-//        options.setCapability("newCommandtimeout", 300);
+        options.setDeviceName("realme C3");
+        options.setUdid("YSBEC689H6W8EM9H");
+        options.setPlatformName("Android");
+        options.setPlatformVersion("11");
+        options.setIgnoreHiddenApiPolicyError(true);
+        //options.setNoReset(true);
+        options.setNoReset(true);
+        //capabilities.setCapability("newCommandTimeout", 300);
+        options.setCapability("newCommandtimeout", 300);
 
 
 // Set adbExecTimeout in milliseconds (60 seconds here)
@@ -74,7 +72,6 @@ public class AppTest {
 
         // driver = new AndroidDriver(url, options);
         driver = new AndroidDriver(url, options);
-
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 
@@ -94,7 +91,10 @@ public class AppTest {
                 By.xpath("//android.widget.ImageView[2]")));
         thirdActionButton.click();
 
-
+// Fetch the URL once navigation is complete
+//        String currentUrl = driver.getCurrentUrl();
+//        System.out.println(currentUrl);
+//        assert currentUrl.equals("https://expected-url.com");
         // Wait and enter mobile number
         WebElement mobileInputField = wait.until(ExpectedConditions.presenceOfElementLocated(
                 By.xpath("//android.widget.ImageView"))); // Adjust if this is incorrect
@@ -172,8 +172,8 @@ public class AppTest {
         scanner.click();
 
         Thread.sleep(4000);
-
-        WebElement increase = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//android.widget.ScrollView/android.view.View[12]")));
+    WebElement increase= wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//android.widget.FrameLayout[@resource-id=\"android:id/content\"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View[12]")));
+//        WebElement increase = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//android.widget.ScrollView/android.view.View[12]")));
 
         for (int i = 1; i < 20; i++) { // starting from 1, click 19 times
             increase.click();
@@ -310,7 +310,6 @@ public class AppTest {
 //        download.click();
         WebElement logoutButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//android.widget.Button[@content-desc=\'Logout\']")));
         logoutButton.click();
-//
 //        // Your test steps...
 //        Thread.sleep(3000);
 
@@ -319,6 +318,7 @@ public class AppTest {
 
 
     }
+
 
 
     public static void clearAppCache(String packageName) {
@@ -349,8 +349,9 @@ public class AppTest {
         }
     }
 
-
 }
+
+
 
 //
 /// /import io.appium.java_client.AppiumDriver;

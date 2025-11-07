@@ -12,7 +12,8 @@ public class chataaklaunchApp extends AppTest {
     @Given("uer navigates to chataak application")
     public void uer_navigates_to_chataak_application() throws MalformedURLException, InterruptedException {
         test.openmobileapp();
-
+//        test.clearAppCache();
+        test.closeApp();
     }
 
 //    @Then("Enter with the mobile number and the otp")
